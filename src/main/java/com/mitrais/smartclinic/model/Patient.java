@@ -21,6 +21,8 @@ public class Patient {
 
     private String idNumber;
 
+    private String medicalRecordNumber;
+
     private String gender;
 
     private String address;
