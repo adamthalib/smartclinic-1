@@ -18,24 +18,25 @@
 </head>
 
 <body>
-<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-    <div class="container"><a class="navbar-brand logo" href="#">Smart Clinic</a>
+<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-primary clean-navbar">
+    <div class="container text-white"><a class="navbar-brand logo" href="#">Smart Clinic</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
                 class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse"
              id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item" role="presentation"><a class="nav-link active" href="/index.html">Home</a></li>
-                <li class="nav-item" role="presentation"><a href="/about-us.html" class="nav-link">posisi</a></li>
-                <li class="nav-item" role="presentation"><a href="/contact-us.html" class="nav-link">user</a></li>
-                <li class="nav-item" role="presentation"><a href="/contact-us.html" class="nav-link">poli</a></li>
-                <li class="nav-item" role="presentation"><a href="/contact-us.html" class="nav-link">jadwal</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="/registration.html">Register</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/home}">Home</a></li>
+                <li class="nav-item" role="presentation"><a href="" class="nav-link">position</a></li>
+                <li class="nav-item" role="presentation"><a href="" class="nav-link">user</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active" th:href="@{/patients}">Patient</a></li>
+                <li class="nav-item" role="presentation"><a href="" class="nav-link">poli</a></li>
+                <li class="nav-item" role="presentation"><a href="" class="nav-link">schedule</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="">Register</a></li>
             </ul>
         </div>
     </div>
 </nav>
-<main class="page landing-page">
+<main class="page landing-page text-info">
     <section class="clean-block features mt-5">
         <div class="container">
             <h1>Form Tambah Pasien</h1>
@@ -103,17 +104,19 @@
                 <div class="form-row">
                     <div class="form-group col-sm-6">
                         <label>Gender<br>
-                            <input type="radio" name="gender" th:text="Laki-laki" th:value="laki-laki"><br/>
-                            <input type="radio" name="gender" th:text="Perempuan" th:value="perempuan"><br/>
-                            <input type="radio" name="gender" th:text="Lainnya" th:value="lainnya">
+                            <input type="radio" name="gender" th:text="Laki-laki" th:value="laki-laki" th:field="*{gender}"><br/>
+                            <input type="radio" name="gender" th:text="Perempuan" th:value="perempuan" th:field="*{gender}"><br/>
+                            <input type="radio" name="gender" th:text="Lainnya" th:value="lainnya" th:field="*{gender}"><br/>
+                            <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></span>
                         </label>
+
                     </div>
 
                 </div>
 
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">Save</button>
-                    <a th:href="@{/}" class="btn btn-danger">Cancel</a>
+                    <a th:href="@{/patients}" class="btn btn-danger">Cancel</a>
                 </div>
 
             </form>
