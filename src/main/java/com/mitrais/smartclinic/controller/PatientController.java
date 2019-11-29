@@ -15,8 +15,7 @@ import javax.validation.Valid;
 @RequestMapping("/patients")
 public class PatientController {
 
-    private final
-    PatientRepository patientRepository;
+    private final PatientRepository patientRepository;
 
     public PatientController(PatientRepository patientRepository) {
         this.patientRepository = patientRepository;
