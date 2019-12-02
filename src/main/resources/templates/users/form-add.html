@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Add Patient</title>
+    <title>Add User</title>
     <link rel="stylesheet" href="../static/assets/bootstrap.min.css" th:href="@{/assets/bootstrap.min.css}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
@@ -27,8 +27,8 @@
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/home}">Home</a></li>
                 <li class="nav-item" role="presentation"><a href="" class="nav-link">position</a></li>
-                <li class="nav-item" role="presentation"><a href="" class="nav-link"th:href="@{/users}">user</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link active" th:href="@{/patients}">Patient</a></li>
+                <li class="nav-item" role="presentation"><a href="" class="nav-link active"th:href="@{/users}">user</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link " th:href="@{/patients}">Patient</a></li>
                 <li class="nav-item" role="presentation"><a href="" class="nav-link">poli</a></li>
                 <li class="nav-item" role="presentation"><a href="" class="nav-link">schedule</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="">Register</a></li>
@@ -40,10 +40,11 @@
     <section class="clean-block features mt-5">
         <div class="container">
             <div class="text-center">
-                <h2 class="text-info">Form Add Patient</h2>
+                <h2 class="text-info">Form Add User</h2>
             </div>
             <br><br>
-            <form action="#" th:action="@{/patients/add}" th:object="${patient}" method="post">
+            <form action="#" th:action="@{/users/add}" th:object="${user}" method="post">
+
                 <div class="form-row">
                     <div class="form-group col-sm-6">
                         <label for="firstName">First Name</label>
@@ -75,16 +76,18 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group col-sm-4">
+                    <div class="form-group col-sm-6">
                         <label for="dob">Date of Birth</label>
                         <input type="date" th:field="*{dob}" id="dob" class="form-control">
                         <span th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></span>
                     </div>
-                    <div class="form-group col-sm-8">
-                        <label for="address">Address</label>
-                        <input type="text" th:field="*{address}" id="address" placeholder="Insert Address"
-                               class="form-control">
-                        <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+                    <div class="form-group col-sm-6">
+                        <label>Gender<br>
+                            <input type="radio" name="gender" th:text="Laki-laki" th:value="laki-laki" th:field="*{gender}"><br/>
+                            <input type="radio" name="gender" th:text="Perempuan" th:value="perempuan" th:field="*{gender}"><br/>
+                            <input type="radio" name="gender" th:text="Lainnya" th:value="lainnya" th:field="*{gender}"><br/>
+                            <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></span>
+                        </label>
                     </div>
                 </div>
 
@@ -104,27 +107,45 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group col-sm-6">
-                        <label>Gender<br>
-                            <input type="radio" name="gender" th:text="Laki-laki" th:value="laki-laki" th:field="*{gender}"><br/>
-                            <input type="radio" name="gender" th:text="Perempuan" th:value="perempuan" th:field="*{gender}"><br/>
-                            <input type="radio" name="gender" th:text="Lainnya" th:value="lainnya" th:field="*{gender}"><br/>
-                            <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></span>
-                        </label>
-
+                    <div class="form-group col-sm-4">
+                        <label for="street">Street</label>
+                        <input type="text" th:field="*{street}" id="street" placeholder="Insert Street"
+                               class="form-control">
+                        <span th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></span>
                     </div>
 
+                    <div class="form-group col-sm-2">
+                        <label for="postCode">Address</label>
+                        <input type="text" th:field="*{postCode}" id="postCode" placeholder="Insert PostCode"
+                               class="form-control">
+                        <span th:if="${#fields.hasErrors('postCode')}" th:errors="*{postCode}"></span>
+                    </div>
+
+                    <div class="form-group col-sm-3">
+                        <label for="city">City</label>
+                        <input type="text" th:field="*{city}" id="city" placeholder="Insert City"
+                               class="form-control">
+                        <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
+                    </div>
+
+                    <div class="form-group col-sm-3">
+                        <label for="province">Province</label>
+                        <input type="text" th:field="*{province}" id="province" placeholder="Insert Province"
+                               class="form-control">
+                        <span th:if="${#fields.hasErrors('province')}" th:errors="*{province}"></span>
+                    </div>
                 </div>
 
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">Save</button>
-                    <a th:href="@{/patients}" class="btn btn-danger">Cancel</a>
+                    <a th:href="@{/users}" class="btn btn-danger">Cancel</a>
                 </div>
 
             </form>
         </div>
     </section>
 </main>
+
 
 <footer class="page-footer dark">
     <div class="footer-copyright">

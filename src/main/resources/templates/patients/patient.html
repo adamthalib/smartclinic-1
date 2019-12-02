@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Contact Us - Smart Clinic</title>
+    <title>List Patient</title>
     <link rel="stylesheet" href="../static/assets/bootstrap.min.css" th:href="@{/assets/bootstrap.min.css}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
@@ -22,7 +22,7 @@
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item" role="presentation"><a class="nav-link"th:href="@{/home}">Home</a></li>
                 <li class="nav-item" role="presentation"><a href="" class="nav-link">position</a></li>
-                <li class="nav-item" role="presentation"><a href="" class="nav-link">user</a></li>
+                <li class="nav-item" role="presentation"><a href="" class="nav-link"th:href="@{/users}">user</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link active" th:href="@{/patients}">Patient</a></li>
                 <li class="nav-item" role="presentation"><a href="" class="nav-link">poli</a></li>
                 <li class="nav-item" role="presentation"><a href="" class="nav-link">schedule</a></li>
@@ -34,6 +34,10 @@
     <main class="page contact-us-page"><section class="clean-block clean-dark">
         <br><br>
     <div class=" container mb-5 pb-5  ">
+        <br>
+        <div class="text-center">
+            <h2 class="text-info">List Patient</h2>
+        </div>
         <button class="btn btn-primary" type="button" ><i class="fa fa-plus">&nbsp<a th:href="@{/patients/add}" class="text-light">Add Patient</a></i></button>
         <div><br></div>
             <div class="row  table-responsive-xl">
